@@ -18,11 +18,6 @@ steps:
     # Optional
     checkName: ""
 
-    # Name of the integration that is executing checks show
-    # string
-    # Optional
-    checksIntegration: ""
-
     # Relative or fully qualified path to a configuration file for checks execution
     # string
     # Optional
