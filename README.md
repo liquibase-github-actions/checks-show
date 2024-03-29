@@ -6,8 +6,13 @@ List available checks, their configuration options, and current settings
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/checks-show@v4.26.0
+- uses: liquibase-github-actions/checks-show@v4.27.0
   with:
+    # Automatically enable new quality checks in liquibase.checks.conf file when they are available. Options: [true|false]
+    # bool
+    # Optional
+    autoEnableNewChecks: ""
+
     # Allows automatic backup and updating of liquibase.checks.conf file when new quality checks are available, or for file format changes. Options: [on|off]
     # string
     # Optional
@@ -17,6 +22,11 @@ steps:
     # string
     # Optional
     checkName: ""
+
+    # Only show the rules that are in the requested status. Valid options are "enabled","disabled", or "all"
+    # string
+    # Optional
+    checkStatus: ""
 
     # If using a checks packages file, optionally specify which packages should be run from the file as a comma separated list.
     # string
@@ -28,7 +38,7 @@ steps:
     # Optional
     checksSettingsFile: ""
 
-    # Only show the listed columns. Column options: id,checkname,type,priority,shortname,scope,enabled,severity,customization,description,file. Use commas to separate column names. Use "all" to select all the columns.
+    # Only show the listed columns. Column options: id,checkname,type,priority,shortname,scope,status,severity,customization,description,file. Use commas to separate column names. Use "all" to select all the columns.
     # string
     # Optional
     showCols: ""
@@ -45,7 +55,7 @@ The liquibase checks show action accepts all valid liquibase global options as o
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/checks-show@v4.26.0
+  - uses: liquibase-github-actions/checks-show@v4.27.0
     with:
       headless: true
       licenseKey: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
