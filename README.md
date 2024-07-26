@@ -6,7 +6,7 @@ List available checks, their configuration options, and current settings
 ```yaml
 steps:
 - uses: actions/checkout@v3
-- uses: liquibase-github-actions/checks-show@v4.28.0
+- uses: liquibase-github-actions/checks-show@v4.29.0
   with:
     # Automatically enable new quality checks in liquibase.checks.conf file when they are available. Options: [true|false]
     # bool
@@ -33,7 +33,7 @@ steps:
     # Optional
     checksPackages: ""
 
-    # Relative or fully qualified path to a configuration file for checks execution
+    # Relative or fully qualified path to a checks settings or checks package file for checks execution
     # string
     # Optional
     checksSettingsFile: ""
@@ -55,7 +55,7 @@ The liquibase checks show action accepts all valid liquibase global options as o
 ```yaml
 steps:
   - uses: actions/checkout@v3
-  - uses: liquibase-github-actions/checks-show@v4.28.0
+  - uses: liquibase-github-actions/checks-show@v4.29.0
     with:
       headless: true
       licenseKey: ${{ secrets.LIQUIBASE_LICENSE_KEY }}
