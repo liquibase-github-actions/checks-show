@@ -21,8 +21,10 @@ message Checks {
     optional string check_status = 4; // Only show the rules that are in the requested status. Valid options are 'enabled','disabled', or 'all'
     optional string checks_packages = 5; // If using a checks packages file, optionally specify which packages should be run from the file as a comma separated list.
     optional string checks_settings_file = 6; // Relative or fully qualified path to a checks settings or checks package file for checks execution
-    optional string show_cols = 7; // Only show the listed columns. Column options: id,checkname,type,priority,shortname,scope,status,severity,customization,description,file. Use commas to separate column names. Use 'all' to select all the columns.
-    liquibase.GlobalOptions global_options = 8;
+    optional bool exit = 7; // Used with --force, an optional flag to just create new file and then exit command
+    optional bool force = 8; // A required safety flag to execute command and create checks-settings-file as written
+    optional string show_cols = 9; // Only show the listed columns. Column options: id,checkname,priority,shortname,scope,type,status,severity,customization,description,file. Use commas to separate column names. Use 'all' to select all the columns.
+    liquibase.GlobalOptions global_options = 10;
   }
 }
 
